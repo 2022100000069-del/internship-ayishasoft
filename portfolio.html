@@ -1,0 +1,348 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+        name="description"
+        content="Ayisha Soft creates practical websites, mobile applications and digital solutions."
+    >
+    <title>Portfolio | Ayisha Soft</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">
+        Skip to main content
+    </a>
+
+    <header class="site-header">
+
+        <a class="brand" href="index.html">
+            Ayisha Soft
+        </a>
+
+        <div class="header-actions">
+
+            <button
+                id="theme-toggle"
+                class="icon-button"
+                type="button"
+                aria-label="Switch to dark mode"
+                title="Toggle light or dark mode"
+            >
+                ☾
+            </button>
+
+            <button
+                id="menu-toggle"
+                class="menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="main-nav"
+            >
+                ☰
+                <span>Menu</span>
+            </button>
+
+        </div>
+
+        <nav
+            id="main-nav"
+            class="main-nav"
+            aria-label="Main navigation"
+        >
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="portfolio.html" aria-current="page">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </header>
+
+    <main id="main-content">
+
+        <section class="hero reveal">
+
+            <span class="eyebrow">
+                Selected work
+            </span>
+
+            <h1>Our Projects</h1>
+
+            <p>
+                A selection of software and design projects.
+            </p>
+
+        </section>
+
+        <section
+            class="section reveal"
+            aria-labelledby="projects-heading"
+        >
+
+            <h2 id="projects-heading">
+                Explore projects
+            </h2>
+
+            <div
+                class="filter-bar"
+                role="group"
+                aria-label="Filter projects"
+            >
+
+                <button
+                    type="button"
+                    class="filter-button is-active"
+                    data-filter="all"
+                    aria-pressed="true"
+                >
+                    All
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="web"
+                    aria-pressed="false"
+                >
+                    Web
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="software"
+                    aria-pressed="false"
+                >
+                    Software
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="mobile"
+                    aria-pressed="false"
+                >
+                    Mobile
+                </button>
+
+            </div>
+
+            <div class="cards project-grid">
+
+                <article
+                    class="project-card"
+                    data-category="web"
+                >
+
+                    <button
+                        class="image-preview"
+                        type="button"
+                        data-preview="assets/afrobeutic-placeholder.svg"
+                        data-caption="Afrobeutic"
+                        aria-label="Preview Afrobeutic image"
+                    >
+
+                        <img
+                            src="assets/afro_logobeutic_logo.webp"
+                            data-fallback="assets/afrobeutic-placeholder.svg"
+                            alt="Afrobeutic project"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+                    <div class="project-info">
+
+                        <span class="project-tag">
+                            Web
+                        </span>
+
+                        <h2>Afrobeutic</h2>
+
+                        <p>
+                            Project overview and visual preview.
+                        </p>
+
+                        <button
+                            class="text-button"
+                            type="button"
+                            data-preview="assets/afrobeutic-placeholder.svg"
+                            data-caption="Afrobeutic"
+                        >
+                            View project image →
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <article
+                    class="project-card"
+                    data-category="software"
+                >
+
+                    <button
+                        class="image-preview"
+                        type="button"
+                        data-preview="assets/analytics-placeholder.svg"
+                        data-caption="Analytics Dashboard"
+                        aria-label="Preview Analytics Dashboard image"
+                    >
+
+                        <img
+                            src="assets/analytics-dashboard-charts.webp"
+                            data-fallback="assets/analytics-placeholder.svg"
+                            alt="Analytics Dashboard project"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+                    <div class="project-info">
+
+                        <span class="project-tag">
+                            Software
+                        </span>
+
+                        <h2>Analytics Dashboard</h2>
+
+                        <p>
+                            Project overview and visual preview.
+                        </p>
+
+                        <button
+                            class="text-button"
+                            type="button"
+                            data-preview="assets/analytics-placeholder.svg"
+                            data-caption="Analytics Dashboard"
+                        >
+                            View project image →
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <article
+                    class="project-card"
+                    data-category="web"
+                >
+
+                    <button
+                        class="image-preview"
+                        type="button"
+                        data-preview="assets/ecommerce-placeholder.svg"
+                        data-caption="E-Commerce"
+                        aria-label="Preview E-Commerce image"
+                    >
+
+                        <img
+                            src="assets/modern-ecommerce-dashboard.webp"
+                            data-fallback="assets/ecommerce-placeholder.svg"
+                            alt="E-Commerce project"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+                    <div class="project-info">
+
+                        <span class="project-tag">
+                            Web
+                        </span>
+
+                        <h2>E-Commerce</h2>
+
+                        <p>
+                            Project overview and visual preview.
+                        </p>
+
+                        <button
+                            class="text-button"
+                            type="button"
+                            data-preview="assets/ecommerce-placeholder.svg"
+                            data-caption="E-Commerce"
+                        >
+                            View project image →
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p
+                id="project-empty"
+                class="empty-state"
+                hidden
+            >
+                No projects in this category yet.
+            </p>
+
+        </section>
+
+        <dialog
+            id="preview-dialog"
+            aria-labelledby="preview-title"
+        >
+
+            <div class="dialog-header">
+
+                <h2 id="preview-title">
+                    Project preview
+                </h2>
+
+                <button
+                    id="close-preview"
+                    class="icon-button"
+                    type="button"
+                    aria-label="Close image preview"
+                >
+                    ×
+                </button>
+
+            </div>
+
+            <img id="preview-image" alt="">
+
+            <p class="muted">
+                Illustrative preview. Replace placeholder
+                images with your actual project screenshots.
+            </p>
+
+        </dialog>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <p>
+            © Ayisha Soft — Learning-stage reconstruction
+        </p>
+
+        <p>
+            Built with HTML, CSS and JavaScript.
+        </p>
+
+    </footer>
+
+    <button
+        id="back-to-top"
+        class="back-to-top"
+        type="button"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+
+</body>
+
+</html>
