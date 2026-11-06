@@ -148,8 +148,8 @@ themeButton?.addEventListener('click', () => {
    WEEK 11: Contact Form Validation
 ========================================== */
 
-// Browser-only demonstration.
-// No actual message is sent.
+// Validates in the browser, then sends the message
+// to the Node.js server (POST /api/contact).
 
 const form = document.querySelector('#contact-form');
 
@@ -258,7 +258,7 @@ if (form) {
 
     });
 
-    form.addEventListener('submit', event => {
+    form.addEventListener('submit', async event => {
 
         event.preventDefault();
 
@@ -291,18 +291,73 @@ if (form) {
 
         }
 
-        feedback.textContent =
-            'Demo successful! Your form is valid. No message was sent.';
+        // Send the message to the Node.js server
+        const submitButton = form.querySelector('[type="submit"]');
 
-        feedback.classList.add('success');
+        submitButton?.setAttribute('disabled', '');
 
-        form.reset();
+        feedback.textContent = 'Sending...';
 
-        Object.values(fields).forEach(input => {
+        try {
 
-            input?.removeAttribute('aria-invalid');
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: fields.name.value,
+                    email: fields.email.value,
+                    message: fields.message.value,
+                    website: form.elements.namedItem('website')?.value || ''
+                })
+            });
 
-        });
+            const result = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+
+                // Show any field errors returned by the server
+                Object.entries(result.errors || {}).forEach(([name, error]) => {
+
+                    const errorElement = document.getElementById(`${name}-error`);
+
+                    if (errorElement) {
+                        errorElement.textContent = error;
+                    }
+
+                    fields[name]?.setAttribute('aria-invalid', 'true');
+
+                });
+
+                feedback.textContent =
+                    result.message || 'Sorry, your message could not be sent.';
+
+                return;
+
+            }
+
+            feedback.textContent =
+                result.message || 'Thank you! Your message has been sent.';
+
+            feedback.classList.add('success');
+
+            form.reset();
+
+            Object.values(fields).forEach(input => {
+
+                input?.removeAttribute('aria-invalid');
+
+            });
+
+        } catch (error) {
+
+            feedback.textContent =
+                'Network error. Please check your connection and try again.';
+
+        } finally {
+
+            submitButton?.removeAttribute('disabled');
+
+        }
 
     });
 
