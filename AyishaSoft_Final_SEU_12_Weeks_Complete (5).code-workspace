@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../AyishaSoft_Final_SEU_12_Weeks_Complete (5)"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "AyishaSoft_Final_SEU_12_Weeks_Complete (5)"
+	}
+}

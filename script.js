@@ -406,7 +406,7 @@ const previewImage =
     document.querySelector('#preview-image');
 
 const previewTitle =
-    document.querySelector('#preview-title');
+    document.querySelector('preview-title');
 
 document.querySelectorAll('[data-preview]').forEach(button => {
 

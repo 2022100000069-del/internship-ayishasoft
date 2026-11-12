@@ -183,7 +183,7 @@ app.post('/api/contact', async (req, res, next) => {
             console.error(`Could not send contact email: ${error.message}`);
 
             // Still keep the message so it isn't lost
-            await saveMessage({ ...entry, emailError: error.message }).catch(() => {});
+            await saveMessage({ ...entry, emailError: error.message }).catch(() => { });
 
             return res.status(502).json({
                 ok: false,

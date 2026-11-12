@@ -1,87 +1,667 @@
-/* Ayisha Soft - HTML, CSS and vanilla JS learning project */
-:root {color-scheme: light; --bg:#f8fafc; --surface:#fff; --text:#17243a; --muted:#53657d; --brand:#1755a5; --brand-hover:#124585; --border:#dfe7f2; --footer:#e9eff8; --shadow:0 8px 24px #17243a18;}
-:root[data-theme="dark"] {color-scheme:dark; --bg:#101b2d; --surface:#17273e; --text:#edf3ff; --muted:#a9bed7; --brand:#83b8ff; --brand-hover:#b6d5ff; --border:#33465e; --footer:#142239; --shadow:0 10px 30px #0005;}
-* {box-sizing:border-box;}
-html {scroll-behavior:smooth;}
-body {font-family:Arial,sans-serif;line-height:1.6;margin:0;color:var(--text);background:var(--bg);}
-a {color:var(--brand);text-decoration:none;}
-a:hover {text-decoration:underline;}
-button,input,textarea {font:inherit;}
-button {cursor:pointer;}
-[hidden] {display:none !important;}
-.skip-link {position:absolute;left:12px;top:-70px;background:var(--surface);padding:10px;z-index:100;}
-.skip-link:focus {top:10px;}
-.site-header {padding:16px 6%;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
-.brand {font-size:1.2rem;font-weight:800;color:var(--text);white-space:nowrap;}
-.header-actions {display:flex;align-items:center;gap:8px;margin-left:auto;}
-.main-nav {display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.main-nav a {color:var(--text);padding:7px 12px;border-radius:8px;font-weight:600;}
-.main-nav a:hover,.main-nav a[aria-current="page"] {color:var(--brand);background:var(--footer);text-decoration:none;}
-.icon-button,.menu-toggle {border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);padding:8px 12px;}
-.menu-toggle {display:none;}
-main {max-width:1100px;margin:auto;padding:36px 6%;min-height:65vh;}
-.hero {padding:40px 0 50px;}
-.eyebrow {display:block;color:var(--brand);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem;}
-h1 {font-size:clamp(30px,4vw,48px);line-height:1.14;max-width:800px;margin:12px 0;}
-h2 {font-size:clamp(22px,2.6vw,28px);line-height:1.25;}
-h3 {font-size:1.1rem;}
-.hero p {font-size:1.1rem;color:var(--muted);max-width:640px;}
-.section {margin:0 0 55px;}
-.muted {color:var(--muted);}
-.cta,.primary-button {display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:#1755a5;color:#fff;border:0;border-radius:8px;font-weight:700;width:max-content;}
-.cta:hover,.primary-button:hover {background:#124585;color:white;text-decoration:none;}
-.cards {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px;}
-article,.quote-card {background:var(--surface);padding:22px;border:1px solid var(--border);border-radius:12px;min-width:0;transition:transform .2s,box-shadow .2s;}
-article:hover,.quote-card:hover {transform:translateY(-3px);box-shadow:var(--shadow);}
-.card-symbol {display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:var(--footer);color:var(--brand);font-size:26px;}
-.feature-card h2,.feature-card h3 {margin-bottom:8px;}
-.step-number,.project-tag {font-size:.78rem;color:var(--brand);font-weight:700;letter-spacing:.04em;}
-.quote-card {margin:0;font-style:italic;}
-.quote-card cite {display:block;font-size:.85rem;color:var(--muted);font-style:normal;margin-top:14px;}
-.project-card {padding:0;overflow:hidden;}
-.project-info {padding:0 20px 22px;}
-.project-card h2 {font-size:22px;margin:8px 0;}
-.image-preview {border:0;background:var(--footer);width:100%;padding:0;display:block;}
-.image-preview img {width:100%;height:180px;object-fit:contain;display:block;}
-.text-button {border:0;padding:0;background:transparent;color:var(--brand);font-weight:700;}
-.filter-bar {display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;}
-.filter-button {border:1px solid var(--border);background:var(--surface);color:var(--text);padding:8px 16px;border-radius:999px;}
-.filter-button.is-active {background:#1755a5;border-color:#1755a5;color:white;}
-.empty-state {padding:20px;border:1px dashed var(--border);border-radius:10px;}
-.faq-list {max-width:760px;}
-details {background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-top:12px;padding:12px 18px;}
-summary {cursor:pointer;font-weight:700;}
-details p {color:var(--muted);margin-bottom:2px;}
-form {display:grid;gap:16px;max-width:550px;}
-.field {display:grid;gap:5px;}
-label {font-weight:600;}
-input,textarea {width:100%;padding:12px;border:1px solid #aabbd0;border-radius:6px;color:var(--text);background:var(--surface);}
-textarea {resize:vertical;}
-[aria-invalid="true"] {border-color:#c93f3f;}
-.field-error {color:#c93f3f;font-size:.85rem;min-height:0;}
-.form-feedback {margin:0;min-height:1.4em;}
-.form-feedback.success {color:#267a47;}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible {outline:3px solid #f59e0b;outline-offset:3px;}
-.site-footer {padding:25px 6%;background:var(--footer);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);}
-.site-footer p {margin:0;}
-.back-to-top {position:fixed;bottom:20px;right:20px;background:#1755a5;color:#fff;border:0;border-radius:50%;width:44px;height:44px;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .2s,transform .2s,visibility .2s;}
-.back-to-top.is-visible {opacity:1;visibility:visible;transform:translateY(0);}
-#preview-dialog {border:1px solid var(--border);border-radius:14px;padding:20px;background:var(--surface);color:var(--text);max-width:min(92vw,720px);}
-#preview-dialog::backdrop {background:#000a;}
-.dialog-header {display:flex;align-items:center;justify-content:space-between;gap:20px;}
-#preview-image {display:block;width:100%;max-height:60vh;object-fit:contain;background:var(--footer);}
-/* Reveal effects only apply once JS confirms it can observe them. */
-.reveal {opacity:1;}
-.js-reveal .reveal {opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease;}
-.js-reveal .reveal.is-revealed {opacity:1;transform:none;}
-@media (max-width:700px) {
-    .site-header {gap:10px;}
-    .menu-toggle {display:inline-flex;align-items:center;gap:6px;}
-    .main-nav {display:none;flex-direction:column;align-items:stretch;flex-basis:100%;width:100%;gap:5px;}
-    .main-nav.is-open {display:flex;}
-    .cards {grid-template-columns:1fr;}
-    .hero {padding:28px 0;}
-    .site-footer {display:block;}
+/* Ayisha Soft - Website Styles */
+
+/* Main website colors and design settings */
+:root {
+    color-scheme: light;
+    --bg: #f8fafc;
+    --surface: #fff;
+    --text: #17243a;
+    --muted: #53657d;
+    --brand: #1755a5;
+    --brand-hover: #124585;
+    --border: #dfe7f2;
+    --footer: #e9eff8;
+    --shadow: 0 8px 24px #17243a18;
 }
-@media (min-width:701px) { .main-nav {display:flex !important;} }
-@media (prefers-reduced-motion:reduce) {html {scroll-behavior:auto;} *,*::before,*::after {animation-duration:.01ms !important;transition-duration:.01ms !important;} .js-reveal .reveal {opacity:1;transform:none;} }
+
+/* Colors used when dark mode is enabled */
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #101b2d;
+    --surface: #17273e;
+    --text: #edf3ff;
+    --muted: #a9bed7;
+    --brand: #83b8ff;
+    --brand-hover: #b6d5ff;
+    --border: #33465e;
+    --footer: #142239;
+    --shadow: 0 10px 30px #0005;
+}
+
+/* Make element sizing easier to manage */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Basic page appearance */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--text);
+    background: var(--bg);
+}
+
+/* Links and buttons */
+a {
+    color: var(--brand);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Hide elements when needed */
+[hidden] {
+    display: none !important;
+}
+
+/* Skip link for easier keyboard navigation */
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -70px;
+    background: var(--surface);
+    padding: 10px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* Header and website name */
+.site-header {
+    padding: 16px 6%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.brand {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text);
+    white-space: nowrap;
+}
+
+/* Header buttons and other actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+/* Main navigation menu */
+.main-nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    color: var(--text);
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current="page"] {
+    color: var(--brand);
+    background: var(--footer);
+    text-decoration: none;
+}
+
+/* Theme and mobile menu buttons */
+.icon-button,
+.menu-toggle {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    padding: 8px 12px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* Main content area */
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 36px 6%;
+    min-height: 65vh;
+}
+
+/* Welcome section */
+.hero {
+    padding: 40px 0 50px;
+}
+
+/* Small text above the main heading */
+.eyebrow {
+    display: block;
+    color: var(--brand);
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: .82rem;
+}
+
+/* Page headings */
+h1 {
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.14;
+    max-width: 800px;
+    margin: 12px 0;
+}
+
+h2 {
+    font-size: clamp(22px, 2.6vw, 28px);
+    line-height: 1.25;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+/* Welcome section paragraph */
+.hero p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 640px;
+}
+
+/* Spacing between content sections */
+.section {
+    margin: 0 0 55px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* Main website buttons */
+.cta,
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: #1755a5;
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    font-weight: 700;
+    width: max-content;
+}
+
+.cta:hover,
+.primary-button:hover {
+    background: #124585;
+    color: white;
+    text-decoration: none;
+}
+
+/* Layout for the website cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Individual cards and their hover effects */
+article,
+.quote-card {
+    background: var(--surface);
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    min-width: 0;
+    transition: transform .2s, box-shadow .2s;
+}
+
+article:hover,
+.quote-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+/* Small symbols used in feature cards */
+.card-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: var(--footer);
+    color: var(--brand);
+    font-size: 26px;
+}
+
+/* Feature card headings */
+.feature-card h2,
+.feature-card h3 {
+    margin-bottom: 8px;
+}
+
+/* Project labels and step numbers */
+.step-number,
+.project-tag {
+    font-size: .78rem;
+    color: var(--brand);
+    font-weight: 700;
+    letter-spacing: .04em;
+}
+
+/* Customer feedback cards */
+.quote-card {
+    margin: 0;
+    font-style: italic;
+}
+
+.quote-card cite {
+    display: block;
+    font-size: .85rem;
+    color: var(--muted);
+    font-style: normal;
+    margin-top: 14px;
+}
+
+/* Project card layout */
+.project-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.project-info {
+    padding: 0 20px 22px;
+}
+
+.project-card h2 {
+    font-size: 22px;
+    margin: 8px 0;
+}
+
+/* Project image preview */
+.image-preview {
+    border: 0;
+    background: var(--footer);
+    width: 100%;
+    padding: 0;
+    display: block;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Simple text-style buttons */
+.text-button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--brand);
+    font-weight: 700;
+}
+
+/* Project filter buttons */
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 18px 0;
+}
+
+.filter-button {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 999px;
+}
+
+.filter-button.is-active {
+    background: #1755a5;
+    border-color: #1755a5;
+    color: white;
+}
+
+/* Message shown when no content is available */
+.empty-state {
+    padding: 20px;
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+}
+
+/* Frequently asked questions */
+.faq-list {
+    max-width: 760px;
+}
+
+details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-top: 12px;
+    padding: 12px 18px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+details p {
+    color: var(--muted);
+    margin-bottom: 2px;
+}
+
+/* Contact form layout */
+form {
+    display: grid;
+    gap: 16px;
+    max-width: 550px;
+}
+
+.field {
+    display: grid;
+    gap: 5px;
+}
+
+label {
+    font-weight: 600;
+}
+
+/* Form input fields */
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #aabbd0;
+    border-radius: 6px;
+    color: var(--text);
+    background: var(--surface);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Highlight fields that contain errors */
+[aria-invalid="true"] {
+    border-color: #c93f3f;
+}
+
+.field-error {
+    color: #c93f3f;
+    font-size: .85rem;
+    min-height: 0;
+}
+
+.form-feedback {
+    margin: 0;
+    min-height: 1.4em;
+}
+
+.form-feedback.success {
+    color: #267a47;
+}
+
+/* Visible outline when navigating with a keyboard */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+/* Website footer */
+.site-footer {
+    padding: 25px 6%;
+    background: var(--footer);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: var(--muted);
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* Back-to-top button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1755a5;
+    color: #fff;
+    border: 0;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity .2s, transform .2s, visibility .2s;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Image preview popup */
+#preview-dialog {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    background: var(--surface);
+    color: var(--text);
+    max-width: min(92vw, 720px);
+}
+
+#preview-dialog::backdrop {
+    background: #000a;
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#preview-image {
+    display: block;
+    width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    background: var(--footer);
+}
+
+/* Animation effects are enabled when JavaScript is ready */
+.reveal {
+    opacity: 1;
+}
+
+.js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .55s ease, transform .55s ease;
+}
+
+.js-reveal .reveal.is-revealed {
+    opacity: 1;
+    transform: none;
+}
+
+/* Mobile-friendly website layout */
+@media (max-width: 700px) {
+
+    .site-header {
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        flex-basis: 100%;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .main-nav.is-open {
+        display: flex;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 28px 0;
+    }
+
+    .site-footer {
+        display: block;
+    }
+}
+
+/* Keep navigation visible on larger screens */
+@media (min-width: 701px) {
+    .main-nav {
+        display: flex !important;
+    }
+}
+
+/* Reduce animations for users who prefer less movement */
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+
+    .js-reveal .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* Homepage Background */
+
+.home-hero {
+    background-image: url("assets/AyishaSoft.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 600px;
+    border-radius: 0;
+    padding: 90px 48px;
+}
+
+/* Homepage Welcome Text */
+
+.home-hero .eyebrow {
+    font-size: 20px;
+    color: #1755a5;
+    font-weight: 700;
+}
+
+/* Homepage Main Heading */
+
+.home-hero h1 {
+    max-width: 58%;
+    font-size: clamp(40px, 4.5vw, 68px);
+    line-height: 1.15;
+    color: #17243a;
+    margin: 30px 0 45px;
+}
+
+/* Homepage Description */
+
+.home-hero p {
+    max-width: 50%;
+    font-size: 25px;
+    color: #53657d;
+    margin-bottom: 30px;
+}
+
+/* Homepage Button */
+
+.home-hero .cta {
+    background: #1755a5;
+    color: white;
+    padding: 18px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 700px) {
+    .home-hero {
+        min-height: 560px;
+        padding: 45px 24px;
+        background-position: 70% center;
+    }
+
+    .home-hero h1 {
+        max-width: 100%;
+        font-size: 36px;
+    }
+
+    .home-hero p {
+        max-width: 100%;
+        font-size: 18px;
+    }
+}

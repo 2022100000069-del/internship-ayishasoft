@@ -4,10 +4,10 @@
 			"path": "."
 		},
 		{
-			"path": "../../Downloads/ayisha-soft-weekwise-9-12/ayisha-soft-weeks-9-to-12"
+			"path": "../Internship_SEU"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "Internship"
+		"liveServer.settings.port": 5501
 	}
 }
